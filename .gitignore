@@ -1,0 +1,106 @@
+# -----------------------------------------
+# Python
+# -----------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos de build
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+.python-version
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Logs
+*.log
+logs/
+logging/
+
+# Banco de dados / dumps
+*.sqlite3
+*.db
+*.sqlite
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Cache
+.cache/
+pytest_cache/
+.pytest_cache/
+.mypy_cache/
+.pyre/
+ruff_cache/
+__pypackages__/
+
+# Testes / cobertura
+cover/
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# Ferramentas
+.dmypy.json
+.pytype/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# Sistemas
+.DS_Store
+Thumbs.db
+
+# Modelos de Machine Learning
+models/
+*.pkl
+*.joblib
+*.h5
+*.onnx
+
+# Dados
+data/
+datasets/
+*.csv
+*.tsv
+*.json
+*.parquet
+
+# Docker
+*.pid
+
+# Arquivos sensíveis
+.env
+.env.*
+docsIA/
