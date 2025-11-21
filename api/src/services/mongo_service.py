@@ -81,9 +81,9 @@ def get_stats():
         total = predictions_collection.count_documents({})
         
         pipeline = [
-            {'': {
-                '_id': '',
-                'count': {'': 1}
+            {'$group': {
+                '_id': '$prediction_name',
+                'count': {'$sum': 1}
             }}
         ]
         
