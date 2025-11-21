@@ -45,25 +45,27 @@ services:
       - mongo_data:/data/db
     restart: unless-stopped
 
-  # API Principal (será criada depois)
-  # api:
-  #   build:
-  #     context: ./api
-  #     dockerfile: Dockerfile
-  #   container_name: kadupul_api
-  #   ports:
-  #     - "8001:8001"
-  #   environment:
-  #     - MONGO_URI=mongodb://mongodb:27017/
-  #     - REDIS_HOST=redis
-  #     - ML_SERVICE_URL=http://model_service:8002
-  #   depends_on:
-  #     - mongodb
-  #     - redis
-  #     - model_service
-  #   networks:
-  #     - kadupul_network
-  #   restart: unless-stopped
+  # API Principal
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: kadupul_api
+    ports:
+      - "8001:8001"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/
+      - MONGO_DB=kadupul_db
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ML_SERVICE_URL=http://model_service:8002
+    depends_on:
+      - mongodb
+      - redis
+      - model_service
+    networks:
+      - kadupul_network
+    restart: unless-stopped
 
 networks:
   kadupul_network:

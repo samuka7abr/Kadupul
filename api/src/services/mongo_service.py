@@ -33,6 +33,10 @@ def init_mongo():
 
 def save_prediction(features, result):
     try:
+        if predictions_collection is None:
+            print('Erro: predictions_collection não inicializada')
+            return None
+            
         doc = {
             'features': features,
             'prediction_index': result['prediction_index'],
@@ -49,6 +53,10 @@ def save_prediction(features, result):
 
 def get_predictions(limit=10):
     try:
+        if predictions_collection is None:
+            print('Erro: predictions_collection não inicializada')
+            return []
+            
         predictions = list(predictions_collection.find()
                           .sort('timestamp', -1)
                           .limit(limit))
@@ -64,6 +72,10 @@ def get_predictions(limit=10):
 
 def get_prediction_by_id(pred_id):
     try:
+        if predictions_collection is None:
+            print('Erro: predictions_collection não inicializada')
+            return None
+            
         from bson.objectid import ObjectId
         prediction = predictions_collection.find_one({'_id': ObjectId(pred_id)})
         
@@ -77,14 +89,22 @@ def get_prediction_by_id(pred_id):
         return None
 
 def get_stats():
+    """Retorna estatísticas das predições"""
     try:
+        if predictions_collection is None:
+            print('Erro: predictions_collection não inicializada')
+            return None
+            
         total = predictions_collection.count_documents({})
         
+        # Pipeline de agregação
         pipeline = [
-            {'$group': {
-                '_id': '$prediction_name',
-                'count': {'$sum': 1}
-            }}
+            {
+                "$group": {
+                    "_id": "$prediction_name",
+                    "count": {"$sum": 1}
+                }
+            }
         ]
         
         by_class = list(predictions_collection.aggregate(pipeline))

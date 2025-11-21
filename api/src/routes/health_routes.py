@@ -7,7 +7,6 @@ health_bp = Blueprint('health', __name__)
 
 @health_bp.route('/health', methods=['GET'])
 def health_check():
-    """Verifica saúde de todos os serviços"""
     
     status = {
         'api': 'healthy',
@@ -16,7 +15,6 @@ def health_check():
         'ml_service': 'disconnected'
     }
     
-    # Verifica MongoDB
     try:
         if mongo_client:
             mongo_client.admin.command('ping')
@@ -24,7 +22,6 @@ def health_check():
     except:
         pass
     
-    # Verifica Redis
     try:
         if redis_client:
             redis_client.ping()
@@ -32,11 +29,9 @@ def health_check():
     except:
         pass
     
-    # Verifica ML Service
     if check_ml_health():
         status['ml_service'] = 'healthy'
     
-    # Define status geral
     all_healthy = all(v == 'healthy' for v in status.values())
     
     return jsonify({

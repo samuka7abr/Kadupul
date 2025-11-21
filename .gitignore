@@ -102,5 +102,4 @@ datasets/
 
 # Arquivos sensíveis
 .env
-.env.*
 docsIA/
