@@ -93,7 +93,6 @@ data/
 datasets/
 *.csv
 *.tsv
-*.json
 *.parquet
 
 # Docker

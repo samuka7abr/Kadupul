@@ -1,0 +1,18 @@
+{
+    "model_name": "modelo_iris_knn.joblib",
+    "config_name": "config.json",
+    "test_size": 0.2,
+    "random_state": 42,
+    "n_neighbors": 3,
+    "feature_names": [
+        "sepal length (cm)",
+        "sepal width (cm)",
+        "petal length (cm)",
+        "petal width (cm)"
+    ],
+    "target_names": [
+        "setosa",
+        "versicolor",
+        "virginica"
+    ]
+}
