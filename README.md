@@ -36,8 +36,8 @@ O sistema é composto por **4 microserviços** principais que se comunicam atrav
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                         KADUPUL API                          │
-│                    (Flask - Porta 8001)                      │
+│                         KADUPUL API                         │
+│                    (Flask - Porta 8001)                     │
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │  • Recebe requisições HTTP                           │   │
 │  │  • Valida dados de entrada                           │   │
