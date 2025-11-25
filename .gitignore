@@ -85,7 +85,6 @@ Thumbs.db
 # Modelos de Machine Learning
 models/
 *.pkl
-*.joblib
 *.h5
 *.onnx
 
